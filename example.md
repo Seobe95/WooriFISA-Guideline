@@ -16,9 +16,10 @@
 ## 3\. 서비스 설계
 
   * **전체 서비스 Flow**:
-    > 
-    > (심사 가이드: 위와 같이 인프라와 데이터 흐름이 포함된 아키텍처 다이어그램을 첨부하세요.)
+  > (심사 가이드: 위와 같이 인프라와 데이터 흐름이 포함된 아키텍처 다이어그램을 첨부하세요.)
+  <img width="2816" height="1536" alt="Gemini_Generated_Image_14i9jf14i9jf14i9" src="https://github.com/user-attachments/assets/8df3192e-ede4-439c-aa6e-48b399c96beb" />
 
+    
 ## 4\. 핵심 기능 구현 (최대 3개)
 
 ### [기능 1] Redis 분산 락을 이용한 재고 감소 로직
