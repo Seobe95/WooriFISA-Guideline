@@ -61,6 +61,6 @@ public void decreaseStock(Long productId, Long quantity) {
 }
 ```
 
-  * **코드 링크**: [OrderService.java (README 파일)](https://github.com/Seobe95/WooriFISA-Guideline/blob/07b70cc4fa8a99407b820478d5b8dc76037f029a/README.md)
+  * **코드 링크**: OrderService.java
 
 ### [기능 2] ...
