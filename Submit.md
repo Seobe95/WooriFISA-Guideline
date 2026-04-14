@@ -36,7 +36,7 @@
 * **Write (등록/수정)**
     * `User` → `LB` → `App Server` → `MySQL 저장` → `Redis 동기화/삭제`
     
-## 3\. 기능 소개
+## 3\. 핵심 기능 소개
 
 ### [기능 1] Redis 분산 락을 이용한 재고 감소 로직
 
@@ -64,3 +64,6 @@ public void decreaseStock(Long productId, Long quantity) {
   * **코드 링크**: OrderService.java
 
 ### [기능 2] ...
+### [기능 3] ...
+### [기능 4] ...
+### [기능 5] ...
