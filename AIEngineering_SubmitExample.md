@@ -28,7 +28,7 @@
   * 서비스의 핵심 데이터(유저, 주문, 상품)는 **RDB(MySQL)**에 저장하여 데이터의 무결성을 유지하고, ACID 원칙에 기반한 트랜잭션의 안전성을 보장합니다.
 
 ### 2-2. AI 에이전트 워크플로우
-<img width="800" height="557" alt="image" src="https://github.com/user-attachments/assets/d1a6c9de-6e73-4db3-8d1b-58ea9d69e4e5" />
+
 
 ### 설명
     
