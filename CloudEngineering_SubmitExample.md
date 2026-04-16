@@ -1,4 +1,4 @@
-# [우리FISA 6기] OOO 과정 N팀 (프로젝트 Submit.md 작성 예시)
+# [우리FISA 6기] 클라우드 엔지니어링 과정 N팀 (프로젝트 Submit.md 작성 예시)
 
 ## 1\. 프로젝트 개요
   * **주제**: 대규모 트래픽 처리가 가능한 한정판 신발 커머스
@@ -7,10 +7,10 @@
       * Java 17, Spring Boot 3.2, MySQL 8.0, Redis, Kafka
    
         
-## 2\. 시스템 아키텍쳐
+## 2\. 아키텍쳐
 
-### 시스템 아키텍쳐
-  <img width="2816" height="1536" alt="Gemini_Generated_Image_14i9jf14i9jf14i9" src="https://github.com/user-attachments/assets/8df3192e-ede4-439c-aa6e-48b399c96beb" />
+### 2-1. 시스템 아키텍쳐
+  <img width="606" height="496" alt="image" src="https://github.com/user-attachments/assets/34f3eca5-e9af-4be0-bdac-2712a336b575" />
 
 ### 설명
 본 프로젝트는 대규모 사용자의 요청을 안정적으로 처리하고, 데이터 응답 속도를 최적화하기 위해 다음과 같이 설계되었습니다.
@@ -27,14 +27,9 @@
   #### **4) Relational Database (MySQL 8.0)**
   * 서비스의 핵심 데이터(유저, 주문, 상품)는 **RDB(MySQL)**에 저장하여 데이터의 무결성을 유지하고, ACID 원칙에 기반한 트랜잭션의 안전성을 보장합니다.
 
----
+### 2-2. 소프트웨어 아키텍처
 
-### 🔄 Data Flow (데이터 흐름)
-
-* **Read (조회)**
-    * `User` → `LB` → `App Server` → `Redis(확인)` → (Cache Miss 시) `MySQL 조회`
-* **Write (등록/수정)**
-    * `User` → `LB` → `App Server` → `MySQL 저장` → `Redis 동기화/삭제`
+### 설명
     
 ## 3\. 핵심 기능 소개
 
