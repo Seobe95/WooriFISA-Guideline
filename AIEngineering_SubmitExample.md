@@ -41,7 +41,7 @@ LLM 기반으로 보고서 작성 계획을 수립한 후, 웹 검색 도구와 
 #### [기능 1] Redis 분산 락을 이용한 재고 감소 로직
 
   * **기능 설명**: 동일한 상품에 1,000명이 동시에 결제를 시도할 때, 재고가 마이너스가 되지 않도록 Redisson 라이브러리를 활용해 원자성을 보장했습니다.
-  * **핵심 코드(스크립트)**:
+  * **핵심 코드**:
 
 <!-- end list -->
 
@@ -61,7 +61,7 @@ public void decreaseStock(Long productId, Long quantity) {
 }
 ```
 
-  * **코드(스트립트) 링크**: OrderService.java
+  * **코드 링크**: OrderService.java
 
 ### [기능 2] ...
 ### [기능 3] ...
