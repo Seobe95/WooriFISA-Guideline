@@ -10,33 +10,37 @@
 ## 2\. 아키텍쳐
 
 ### 2-1. 시스템 아키텍쳐
-  <img width="606" height="496" alt="image" src="https://github.com/user-attachments/assets/34f3eca5-e9af-4be0-bdac-2712a336b575" />
+  <img width="862" height="690" alt="슬라이드5" src="https://github.com/user-attachments/assets/67b4da1a-377b-46cb-b1bd-efe41b41dac6" />
+
 
 ### 설명
-본 프로젝트는 대규모 사용자의 요청을 안정적으로 처리하고, 데이터 응답 속도를 최적화하기 위해 다음과 같이 설계되었습니다.
-
-  #### **1) Load Balancer (부하 분산)**
-  * 사용자의 HTTPS 요청이 단일 서버로 몰리지 않도록 3대의 **Web Application Server(WAS)**로 균등하게 분산하여 가용성을 높이고 서버 다운타임을 최소화했습니다.
-  
-  #### **2) Web Application Servers (비즈니스 로직)**
-  * 각 서버는 동일한 소스 코드로 동작하는 **Stateless(무상태)** 구조로 설계되었습니다. 이를 통해 서버 증설이 용이한 **확장성(Scalability)**을 확보했습니다.
-  
-  #### **3) In-Memory Cache (Redis 활용)**
-  * 반복적으로 발생하는 동일한 데이터 조회 요청은 **Redis**에서 즉시 반환(**Cache Hit**)하도록 처리하여, 메인 데이터베이스의 부하를 약 **60% 이상 절감**했습니다.
-  
-  #### **4) Relational Database (MySQL 8.0)**
-  * 서비스의 핵심 데이터(유저, 주문, 상품)는 **RDB(MySQL)**에 저장하여 데이터의 무결성을 유지하고, ACID 원칙에 기반한 트랜잭션의 안전성을 보장합니다.
+GitHub과 Jenkins를 연계한 CI/CD 파이프라인을 통해 코드 변경 시 자동으로 빌드 및 배포가 이루어지는 구조입니다.
+Frontend(React)와 Backend(FastAPI)는 Docker 기반으로 구성되어 있으며, MySQL, S3, OpenSearch와 연동하여 데이터 저장 및 검색 기능을 수행합니다.
+또한 Prometheus, Grafana, Elasticsearch, Kibana를 활용한 모니터링 및 로그 관리 환경을 통해 시스템의 안정적인 운영을 지원합니다.
 
 ### 2-2. 소프트웨어 아키텍처
+<img width="1148" height="705" alt="프레젠테이션2" src="https://github.com/user-attachments/assets/c3c2f677-bd1f-4277-83cb-59dcb5897e63" />
 
 ### 설명
-    
-## 3\. 핵심 기능 소개
 
-### [기능 1] Redis 분산 락을 이용한 재고 감소 로직
+해당 아키텍처는 Presentation부터 Database까지 계층적으로 구성된 Layered 구조로, 각 레이어가 역할에 따라 분리되어 있습니다.
+요청은 상위 레이어에서 하위 레이어로 순차적으로 전달되며, Controller–Service–Component–DBIO를 거쳐 데이터 처리 및 비즈니스 로직이 수행됩니다.
+또한 Utility와 Interface 영역을 통해 외부 시스템 연동 및 공통 기능을 분리하여, 확장성과 유지보수성을 고려한 구조로 설계되었습니다.
 
-  * **설명**: 동일한 상품에 1,000명이 동시에 결제를 시도할 때, 재고가 마이너스가 되지 않도록 Redisson 라이브러리를 활용해 원자성을 보장했습니다.
-  * **핵심 코드**:
+## 3\. 주요 기능 소개
+
+### 3-1. 핵심 기술 구성
+<img width="1280" height="720" alt="슬라이드4" src="https://github.com/user-attachments/assets/6f65ae06-91dc-441f-8439-6857ef98e04a" />
+
+### 3-2. 통합 워크플로우 다이어그램
+<img width="984" height="720" alt="슬라이드1" src="https://github.com/user-attachments/assets/3979ce05-2a67-4e11-b595-eee8a0b11ac4" />
+
+### 3-3. 세부 기능 소개
+
+#### [기능 1] Redis 분산 락을 이용한 재고 감소 로직
+
+  * **기능 설명**: 동일한 상품에 1,000명이 동시에 결제를 시도할 때, 재고가 마이너스가 되지 않도록 Redisson 라이브러리를 활용해 원자성을 보장했습니다.
+  * **핵심 코드(스크립트)**:
 
 <!-- end list -->
 
@@ -56,7 +60,7 @@ public void decreaseStock(Long productId, Long quantity) {
 }
 ```
 
-  * **코드 링크**: OrderService.java
+  * **코드(스트립트) 링크**: OrderService.java
 
 ### [기능 2] ...
 ### [기능 3] ...
